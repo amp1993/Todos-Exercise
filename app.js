@@ -11,7 +11,7 @@
             toDoText.textContent = newToDoInput;
 
             const removeButton = document.createElement('button');
-            removeButton.textContent = 'Remove';
+            removeButton.textContent = 'X';
             removeButton.classList.add('remove-button');
             removeButton.addEventListener('click', function() {
                 createLi.remove();
@@ -29,9 +29,12 @@
         if (e.target.classList.contains('remove-button')) {
             const listItem = e.target.closest('li');
             listItem.remove();
-        } else if (e.target.tagName === 'LI') {
-            e.target.classList.toggle('completed');
         }
     });
 
+    taskList.addEventListener('click', function(e) {
+        if (e.target.tagName === 'SPAN') {
+            e.target.classList.toggle('completed');
+        }
+    });
 
